@@ -531,7 +531,7 @@ jobs:
         if: steps.compilation-cache-restore.outputs.cache-hit != 'true'
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
-          go-version: '1.26.x'
+          go-version: '1.27.3'
           cache: false
 
       - name: Refresh universal nightly compilation cache
@@ -1066,7 +1066,7 @@ jobs:
       - name: Set up Go for the Cloud tunnel extension
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
-          go-version: '1.26.x'
+          go-version: '1.27.3'
           cache: false
 
       - name: Build nightly app (Release)

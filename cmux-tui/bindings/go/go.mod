@@ -1,3 +1,5 @@
 module github.com/manaflow-ai/cmux/cmux-tui/bindings/go
 
 go 1.22
+
+toolchain go1.27.3

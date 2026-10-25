@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"nhooyr.io/websocket"
+	"github.com/coder/websocket"
 )
 
 func TestTmuxCorpusWebSocketPTYInitialSizeAndResizeControl(t *testing.T) {

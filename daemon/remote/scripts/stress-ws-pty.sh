@@ -15,7 +15,7 @@ trap 'rm -rf "$stress_tmp"' EXIT
 stress_bin="$stress_tmp/cmuxd-remote.test"
 
 cd "$REMOTE_DIR"
-export GOTOOLCHAIN="${GOTOOLCHAIN:-go1.24.7+auto}"
+export GOTOOLCHAIN="${GOTOOLCHAIN:-go1.27.3+auto}"
 
 if [[ ! "$log_every" =~ ^[1-9][0-9]*$ ]]; then
   echo "invalid CMUX_PTY_STRESS_LOG_EVERY: $log_every" >&2

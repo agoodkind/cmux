@@ -25,7 +25,7 @@ import (
 	"time"
 
 	"github.com/creack/pty"
-	"nhooyr.io/websocket"
+	"github.com/coder/websocket"
 )
 
 type doneObservedContext struct {
