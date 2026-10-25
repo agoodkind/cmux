@@ -40,7 +40,7 @@ WORK_DIR="${TARGET_TEMP_DIR:-${GO_SRC_DIR}/.tmp}/wireguard-go"
 # shellcheck source=scripts/build-phase-caller-path.sh
 . "${ROOT}/scripts/build-phase-caller-path.sh"
 # Xcode build phases do not inherit a login-shell PATH.
-export PATH="/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin:${HOME}/go/bin:${PATH}"
+export PATH="${PATH}:/usr/local/go/bin:/opt/homebrew/bin:/usr/local/bin:${HOME}/go/bin"
 
 case "${CMUX_WIREGUARD_GO_REQUIRE:-}" in
   1|true|TRUE|yes|YES) REQUIRE_GO=1 ;;
@@ -94,6 +94,9 @@ GO_BIN="${CMUX_WIREGUARD_GO_BINARY:-$(command -v go || true)}"
 archives=()
 seen=""
 if [[ -n "$GO_BIN" && -x "$GO_BIN" ]]; then
+  # Resolve the module's preferred compiler before disabling toolchain switching.
+  GO_ROOT="$(cd "$GO_SRC_DIR" && GOTOOLCHAIN=auto "$GO_BIN" env GOROOT)"
+  GO_BIN="${GO_ROOT}/bin/go"
   echo "wireguard-go: building with $("$GO_BIN" version) for: ${requested_archs}"
   for arch in $requested_archs; do
     case " $seen " in *" $arch "*) continue ;; esac
