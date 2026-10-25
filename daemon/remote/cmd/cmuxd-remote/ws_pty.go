@@ -27,7 +27,7 @@ import (
 	"unsafe"
 
 	"github.com/creack/pty"
-	"nhooyr.io/websocket"
+	"github.com/coder/websocket"
 )
 
 type wsPTYServerConfig struct {
